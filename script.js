@@ -4,9 +4,12 @@ class Die {
     constructor() {
         this.value;
         this.roll();
+
         this.div = document.createElement('div');//DOM elements
         this.divText = document.createTextNode(this.value);
         this.div.append(this.divText);
+        document.getElementById('die-container').appendChild(this.div);
+
         this.div.style.border = '2px solid pink';
         this.div.style.height = '100px';
         this.div.style.width = '100px';
@@ -14,9 +17,8 @@ class Die {
         this.div.style.margin = '5px';
         this.div.style.display = 'inline-block';
         this.div.style.lineHeight = '100px';
-        document.getElementById('die-container').append(this.div);
+        
 
-        //THIS classses event listener
         this.div.addEventListener('click', () => {
             this.roll();
             this.div.innerText = this.value;
